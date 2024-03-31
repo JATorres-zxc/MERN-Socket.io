@@ -4,6 +4,8 @@ import cookieParser from 'cookie-parser'
 
 import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js';
+import userRoutes from './routes/user.routes.js';
+
 
 import connectToMongoDb from './db/connectToMongoDb.js';
 
@@ -17,6 +19,7 @@ app.use(cookieParser()) // cookie parser middleware
 
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/users', userRoutes);
 
 // app.get('/', (req, res) => {
 //     res.send('hello worldd');
