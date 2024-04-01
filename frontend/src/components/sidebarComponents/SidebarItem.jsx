@@ -5,13 +5,13 @@ import LogoutItem from './LogoutItem'
 
 const SidebarItem = () => {
 return (
-    <div>
+	<div className='border-r border-slate-500 p-4 flex flex-col'>
         <SearchInputItem/>
         <div className='divider px-3'></div>
         <ConversationsItem />
         <LogoutItem />
     </div>
-)
+    )
 }
 
 export default SidebarItem
