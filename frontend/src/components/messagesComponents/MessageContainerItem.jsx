@@ -1,21 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MessagesItems from './MessagesItems';
 import MessageInputItem from './MessageInputItem';
 import {TiMessages} from 'react-icons/ti'
+import useConversation from '../../zustand/useConversation';
 
 const MessageContainerItem = () => {
-	const NochatSelected = true
+	
+
+	const {selectedConversation, setSelectedConversation} = useConversation() // global state
+
+	useEffect(() =>{
+		return () => setSelectedConversation(null) // to unmount or so that when the user logout, it will rest selectedConversation first
+	},[])
 
 	return (
 		<div className='md:min-w-[450px] flex flex-col'>
-			{NochatSelected ? (
+			{!selectedConversation ? (
 				<NoChatSelected />
 			) : (
 				<>
 					{/* Header */}
 					<div className='bg-slate-500 px-4 py-2 mb-2'>
 						<span className='label-text'>To:</span>{" "}
-						<span className='text-gray-900 font-bold'>hehehe</span>
+						<span className='text-gray-900 font-bold'>{selectedConversation.fullName}</span>
 					</div>
 					<MessagesItems />
 					<MessageInputItem />

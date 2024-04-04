@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthContext } from '../context/AuthContext';
 
+
 const useLogout = () => {
     const { setAuthUser } = useAuthContext();
 
@@ -19,11 +20,11 @@ const useLogout = () => {
             localStorage.removeItem('chat-user');
             setAuthUser(null);
         } catch (error) {
-            console.error(error); // Log the error for debugging purposes
+            console.error(error); 
         }
     };
 
-    return { loading: false, logout }; // Initialize loading directly as false
+    return { loading: false, logout }; 
 };
 
 export default useLogout;
