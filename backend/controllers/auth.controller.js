@@ -33,7 +33,7 @@ export const signup = async (req, res) => {
 		if (newUser) {
             const token = await generateTokenAndSetCookie(newUser._id, res);
 			await newUser.save();
-            console.log('token', token)
+            // console.log('token', token)
 
 			res.status(201).json({
 				_id: newUser._id,
@@ -61,7 +61,7 @@ export const login = async (req, res) => {
 		}
 
         const token = await generateTokenAndSetCookie(user._id, res);
-        console.log('token', token)
+        // console.log('token', token)
         
 		res.status(200).json({
 			_id: user._id,
