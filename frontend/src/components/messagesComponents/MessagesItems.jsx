@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import MessageItem from './MessageItem';
 import useGetMessages from '../../hooks/useGetMessages';
 import MessageSkeleton from '../skeleton/MessageSkeleton';
@@ -10,6 +10,14 @@ const MessagesItems = () => {
       console.log('messages:', messages)
 
       useListenMessages()
+
+      const lastMessageRef = useRef();
+
+	useEffect(() => {
+		setTimeout(() => {
+			lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+		}, 100);
+	}, [messages]);
 
 	return (
 		<div className='px-4 flex-1 overflow-auto'>
