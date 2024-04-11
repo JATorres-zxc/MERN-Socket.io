@@ -6,13 +6,14 @@ import { create } from 'zustand';
 const useConversation = create((set) => ({
     selectedConversation:null,
 
+    // function to set the selectedConversation in the global state
     setSelectedConversation:(selectedConversation) => set({
         selectedConversation
     }), // similar with useState in useLogin
 
-    messages:[],
+    messages:[], // initialize messages as an empty array   
 
-    setMessages: (messages) => set({messages}),
+    setMessages: (messages) => set({messages}), // function to set the messages in the global state
     
 }));
 
