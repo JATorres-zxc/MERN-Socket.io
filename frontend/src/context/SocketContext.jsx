@@ -22,7 +22,7 @@ export const SocketContextProvider = ({children}) =>{
     useEffect(() =>{
         if(authUser){
             // establish socket connection to server with user's id
-            const socket = io('http://localhost:5000',{
+            const socket = io('https://mern-socket-io.onrender.com',{
                 query:{
                     userId: authUser._id
                 }
